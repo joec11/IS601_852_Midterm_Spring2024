@@ -1,0 +1,6 @@
+1.0,2.5,add,3.5
+5.0,7.5,multiply,37.5
+8.0,2.0,divide,4.0
+4.0,3.0,multiply,12
+10.0,0.0,divide,ERR: Divide by 0
+3.5,1.0,subtract,2.5
