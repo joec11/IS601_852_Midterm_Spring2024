@@ -39,10 +39,10 @@ def test_calculation_repr():
 
 def test_divide_by_zero():
     """
-    Test division by zero to ensure it raises a ValueError.
+    Test division by zero to ensure it returns 'ERR: Divide by 0'.
     
     This test checks that attempting to perform a division operation with a zero divisor
-    correctly raises a ValueError, as dividing by zero is mathematically undefined and should be handled as an error.
+    correctly returns 'ERR: Divide by 0', as dividing by zero is mathematically undefined and should be handled with an error message.
     """
     calc = Calculation(Decimal('10'), Decimal('0'), divide)  # Create a Calculation instance with a zero divisor.
     assert calc.perform() == "ERR: Divide by 0"  # Assert that the result matches the expected result.
