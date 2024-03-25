@@ -34,24 +34,27 @@ class CsvCommand(Command):
     def history_option(self):
         print("History is blank." if self.df_calculations.empty else self.df_calculations)
 
+    def set_data_path(self):
+        load_dotenv(find_dotenv())
+        self.data_dir = os.path.abspath(os.getenv('DATA_DIR', 'data')); \
+        self.csv_file_path = os.path.join(self.data_dir, os.getenv('CALC_HISTORY_CSV', 'calculations_history.csv'))
+
+        os.makedirs(self.data_dir, exist_ok=True); \
+        open(self.csv_file_path, "w").close() if not os.path.exists(self.csv_file_path) else None
+
+    def add_to_history(self, *args):
+        pd.DataFrame({'A': [args[0]], 'B': [args[1]], 'CMD': [args[2]], 'Result': [args[3]]}) \
+            .to_csv(self.csv_file_path, mode='a', header=False, index=False)
+
     def execute(self, *args):
         try:
-            load_dotenv(find_dotenv())
-            self.data_dir = os.path.abspath(os.getenv('DATA_DIR', 'data')); \
-            self.csv_file_path = os.path.join(self.data_dir, os.getenv('CALC_HISTORY_CSV', 'calculations_history.csv'))
-            
-            if not os.path.exists(self.data_dir): \
-                os.makedirs(self.data_dir)
-
-            if not os.path.exists(self.csv_file_path): \
-                open(self.csv_file_path, "w").close()
+            self.set_data_path()
 
             if not os.access(self.data_dir, os.W_OK) or not os.access(self.csv_file_path, os.W_OK): \
                 raise OSError
 
             if len(args) == 5: \
-                pd.DataFrame({'A': [args[0]], 'B': [args[1]], 'CMD': [args[2]], 'Result': [args[3]]}) \
-                    .to_csv(self.csv_file_path, mode='a', header=False, index=False); \
+                self.add_to_history(*args); \
                 return
 
             self.df_calculations = pd.read_csv(self.csv_file_path, header=None, names=['1st Operand', '2nd Operand', 'Command', 'Result'])
