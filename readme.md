@@ -1,7 +1,7 @@
 # Midterm
 
 ## Implementation
-Calculator:
+* Calculator:
     * Calculator Class:
         - Static methods: _perform_operation, add, subtract, multiply, divide
 
@@ -18,11 +18,11 @@ Calculator:
     * Operations:
         - Functions: add, subtract, multiply, divide
 
-App:
+* App:
     - Class Constructor: __init__
     - Public methods: configure_logging, load_environment_variables, get_environment_variable, load_plugins, register_plugin_commands, start
 
-    Commands:
+    * Commands:
         * Command Class (Inherits from ABC):
             - Abstract method: execute
         
@@ -30,7 +30,7 @@ App:
             - Class Constructor: __init__
             - Public methods: register_command, execute_command
 
-    Plugins:
+    * Plugins:
         * AddCommand Class (Inherits from Command):
             - Public method: execute
 
@@ -57,19 +57,19 @@ App:
         * SubtractCommand Class (Inherits from Command):
             - Public method: execute
 
-Data Directory (data):
+* Data Directory (data):
     - Contains a calculations history csv file that stores calculations such as add, subtract, multiply, divide, and divide by zero.
 
-GitHub Workflows:
+* GitHub Workflows:
     - Contains a python-app yml file that defines a workflow to install Python dependencies, run tests and lint with a single version of Python.
 
 ## Design Patterns
-Look Before You Leap (LBYL):
+* Look Before You Leap (LBYL):
     * App Class:
         - Checks if the logging configuration path exists, otherwise the default logging configuration will be used if the logging configuration path does not exist.
         - Checks if the environment variable file exists, otherwise the operating system environment variables will be loaded.
 
-Easier to Ask for Forgiveness than Permission (EAFP):
+* Easier to Ask for Forgiveness than Permission (EAFP):
     * App Class:
         - Uses a try/except to load and register a plugin, otherwise an import error will be logged stating that there was an error when trying to import the plugin.
 
@@ -88,9 +88,9 @@ Easier to Ask for Forgiveness than Permission (EAFP):
             - Log an assertion error if either the data directory or the data file is not writable.
 
 ## Environment Variables
-    * Environment variables are contained within the .env file and are loaded into the application when requested.
-        - There are two environment variables that define the data directory and the data file name.
-        - If the .env file does not exist or the requested environment variables are not found in the .env, then the default values will be used.
+* Environment variables are contained within the .env file and are loaded into the application when requested.
+    - There are two environment variables that define the data directory and the data file name.
+    - If the .env file does not exist or the requested environment variables are not found in the .env, then the default values will be used.
 
 ## Logging
-    * Logging is configured to only log application activity to a log file and consists of the severity types, info, warning, and error.
+* Logging is configured to only log application activity to a log file and consists of the severity types, info, warning, and error.
