@@ -1,15 +1,18 @@
 # Midterm
 
+## Presentation
+[IS601 Midterm Presentation](https://youtu.be/B6ab58d86R8)
+
 ## Implementation
 * Calculator:
     * Calculator Class:
         - Static methods: _perform_operation, add, subtract, multiply, divide
 
     * Calculation Class:
-        - Class Constructor: \__init__
+        - Class Constructor: \_\_init\_\_
         - Static method: create
         - Public method: perform
-        - Special method: \__repr__
+        - Special method: \_\_repr\_\_
 
     * Calculations Class:
         - history List of Calculation class objects
@@ -19,7 +22,7 @@
         - Functions: add, subtract, multiply, divide
 
 * App:
-    - Class Constructor: \__init__
+    - Class Constructor: \_\_init\_\_
     - Public methods: configure_logging, load_environment_variables, get_environment_variable, load_plugins, register_plugin_commands, start
 
     * Commands:
@@ -27,7 +30,7 @@
             - Abstract method: execute
         
         * CommandHandler Class:
-            - Class Constructor: \__init__
+            - Class Constructor: \_\_init\_\_
             - Public methods: register_command, execute_command
 
     * Plugins:
@@ -35,7 +38,7 @@
             - Public method: execute
 
         * CsvCommand Class (Inherits from Command):
-            - Class Constructor: \__init__
+            - Class Constructor: \_\_init\_\_
             - Private methods: __clear_option, __delete_option, __done_option, __history_option, __perform, __set_data_path, __add_to_history
             - Public method: execute
 
