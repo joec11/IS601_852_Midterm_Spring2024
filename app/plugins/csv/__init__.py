@@ -81,7 +81,7 @@ class CsvCommand(Command):
             while not self.done:
                 option_input = input(">>>>>> ").strip().split()
                 try:
-                    assert 0 < len(option_input) <= len(self.df_calculations.index)
+                    assert 0 < len(option_input) <= len(self.df_calculations.index) + 1
 
                     option = option_input[0].lower(); \
                     rows_to_delete = [int(x) for x in option_input[1:]] if (len(option_input) > 1 and option == 'delete') else []
