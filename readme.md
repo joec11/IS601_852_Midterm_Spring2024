@@ -6,10 +6,10 @@
         - Static methods: _perform_operation, add, subtract, multiply, divide
 
     * Calculation Class:
-        - Class Constructor: __init__
+        - Class Constructor: \__init__
         - Static method: create
         - Public method: perform
-        - Special method: __repr__
+        - Special method: \__repr__
 
     * Calculations Class:
         - history List of Calculation class objects
@@ -19,7 +19,7 @@
         - Functions: add, subtract, multiply, divide
 
 * App:
-    - Class Constructor: __init__
+    - Class Constructor: \__init__
     - Public methods: configure_logging, load_environment_variables, get_environment_variable, load_plugins, register_plugin_commands, start
 
     * Commands:
@@ -27,7 +27,7 @@
             - Abstract method: execute
         
         * CommandHandler Class:
-            - Class Constructor: __init__
+            - Class Constructor: \__init__
             - Public methods: register_command, execute_command
 
     * Plugins:
@@ -35,7 +35,7 @@
             - Public method: execute
 
         * CsvCommand Class (Inherits from Command):
-            - Class Constructor: __init__
+            - Class Constructor: \__init__
             - Private methods: __clear_option, __delete_option, __done_option, __history_option, __perform, __set_data_path, __add_to_history
             - Public method: execute
 
@@ -59,6 +59,7 @@
 
 * Data Directory (data):
     - Contains a calculations history csv file that stores calculations such as add, subtract, multiply, divide, and divide by zero.
+    - The pandas library is used to read the data from the csv file into a dataframe and write any data changes from the dataframe into the csv file.
 
 * GitHub Workflows:
     - Contains a python-app yml file that defines a workflow to install Python dependencies, run tests and lint with a single version of Python.
